@@ -152,5 +152,3 @@ const ResiZableComponent = () => {
 };
 
 export default ResiZableComponent;
-
-export default ResiZableComponent;
