@@ -13,7 +13,7 @@ const ResiZableComponent = () => {
   const [collectionData, setCollectionData] = useState([]);
   const [updateCount, setUpdateCount] = useState(0);
   const [userAction, setUserAction] = useState('Add');
-  const [collectionId, setCollectionId] = useState(null);
+  const [collectionId, setCollectionId] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +21,7 @@ const ResiZableComponent = () => {
         const data = await getCollection();
         if (data) {
           setCollectionData(data.collections);
-          setUpdateCount(data.updateCount);
+          setUpdateCount(data.updateCount.update_count);
         }
       } catch (error) {
         console.error('Error fetching collection data:', error);
@@ -76,7 +76,7 @@ const ResiZableComponent = () => {
         const updatedData = await getCollection();
         if (updatedData) {
           setCollectionData(updatedData.collections);
-          setUpdateCount(updatedData.updateCount);
+          setUpdateCount(updatedData.updateCount.update_count);
         }
       } catch (error) {
         console.error('Error:', error);
@@ -144,7 +144,7 @@ const ResiZableComponent = () => {
       >
         <div>
           <p>Total Collection:{collectionData.length}</p>
-          <p>Updated Collection:{updateCount.update_count}</p>
+          <p>Updated Collection:{updateCount}</p>
         </div>
       </div>
     </div>
